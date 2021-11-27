@@ -1,0 +1,33 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "A Simple C.R.U.D",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thiaguinhoo/simple-crud-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thiaguinhoo/simple-crud-api/issues"
+  },
+  "homepage": "https://github.com/thiaguinhoo/simple-crud-api#readme",
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.3.1",
+    "prettier": "^2.5.0",
+    "supertest": "^6.1.6"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-status-codes": "^2.1.4"
+  }
+}
