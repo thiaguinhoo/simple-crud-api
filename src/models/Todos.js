@@ -8,17 +8,15 @@ const Tarefas = require('./Tarefas');
 
 const Todos = connection.define('todos',{
     titulo: {
-        type: sequelize.INTEGER,
-        allowNull:false
+        type: sequelize.STRING,
+        
     }    
     
     
 })
 
 
-Todos.sync({
-    force: true
-});
+
 Todos.hasMany(Tarefas)// Um Lista tem várias listas de tárefas
 Tarefas.belongsTo(Todos)//Uma  tarefa pertence a uma lista 
 module.exports = Todos;

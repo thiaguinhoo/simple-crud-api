@@ -20,7 +20,5 @@ const Tarefas = connection.define('tarefas',{
 })
 
 
-Tarefas.sync({
-    force: true
-});
+
 module.exports = Tarefas;
