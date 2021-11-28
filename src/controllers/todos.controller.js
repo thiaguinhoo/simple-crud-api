@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { StatusCodes } = require('http-status-codes');
 
 module.exports = {

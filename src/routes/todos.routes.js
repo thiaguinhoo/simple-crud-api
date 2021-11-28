@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const { Router } = require('express');
 const todosController = require('../controllers/todos.controller');
 
