@@ -7,12 +7,10 @@ const Tarefas = require('./Tarefas');
 
 
 const Todos = connection.define('todos',{
-    lista:{
-        type: sequelize.STRING,
+    titulo: {
+        type: sequelize.INTEGER,
         allowNull:false
-    },
-  
-        timestamps: false
+    }    
     
     
 })

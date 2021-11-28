@@ -8,9 +8,13 @@ const connection = require('../database/database')
 const Tarefas = connection.define('tarefas',{
     tarefa:{
         type: sequelize.STRING,
+        completa: false,
         allowNull:false
     },
-        timestamps: false
+   
+
+    
+       
     
     
 })
