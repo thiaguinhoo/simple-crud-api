@@ -2,7 +2,9 @@
 const express = require('express');
 const todosRoutes = require('./src/routes/todos.routes');
 const connection = require('./src/database/database')
-const application = express();
+const app = express();
+
+
 
 
 
@@ -16,18 +18,17 @@ connection
 
 
 
+app.use(express.json());        
+app.use(express.urlencoded({ extended: true }));
 
-application.use(express.urlencoded({extended:false}));
-application.use(express.json());
-application.use(express.static('public'))
 
      
 
 
-application.use('/todos', todosRoutes);
+app.use('/todos', todosRoutes);
 
 
-application.listen(8080,()=>{
+app.listen(8080,()=>{
     console.log('Application rodando!')
 })
 

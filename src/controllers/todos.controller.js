@@ -19,12 +19,22 @@ module.exports = {
 
 
   criarLista: async (request, response) =>{
-    Todos.create({titulo: request.body.titulo})
-    .then(todos => {
-     response.json((todos));
-    });
-
+    let titulo = request.body.titulo
+    if(titulo != undefined){
+        Todos.create({
+                    titulo: titulo
+                    
+            }).then(()=>{
+              response.sendStatus(StatusCodes.CREATED);
+            })
+    }else{
+      response.json({error: 'Dados não enviados'})
+    }
+    
+  
   },
+  
+  
 
   deletarLista:(request,response)=>{
     var id = request.id.params
