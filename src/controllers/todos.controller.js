@@ -35,6 +35,7 @@ module.exports = {
   },
   
   
+  
 
   deletarLista:(request,response)=>{
     var id = request.id.params
@@ -43,10 +44,25 @@ module.exports = {
          todo.destroy()
     }
     response.json({})
-  }
- 
+  },
+
+  
+
+  atualizarTituloLista: async(request,response)=>{
+      let id = request.params.id
+      let tituloEdit = request.body.titulo
+      Todos.update({titulo: tituloEdit},{
+        where:{
+                id:id
+        }
+}).then(()=>{
+        response.sendStatus(StatusCodes.OK);
+})
+
+      }
+
+  };
 
 
 
 
-};
