@@ -15,10 +15,19 @@ connection
         })
 
 
+
+
+application.use(express.urlencoded({extended:false}));
+application.use(express.json());
+application.use(express.static('public'))
+
+     
+
+
 application.use('/todos', todosRoutes);
 
 
 application.listen(8080,()=>{
     console.log('Application rodando!')
 })
-module.exports = application;
+
