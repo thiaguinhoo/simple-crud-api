@@ -1,18 +1,26 @@
 /* eslint-disable prettier/prettier */
 const sequelize = require('sequelize')
-const connection = require('../database/database')
+const connection = require('../database/database');
+const Tarefas = require('./Tarefas');
+
+
+
 
 const Todos = connection.define('todos',{
-    id: {
-        type: sequelize.INTEGER,
-        autoIncrement: true,
-        allowNull: false,
-        primaryKey: true
-    },tarefa:{
-        type:sequelize.STRING,
-        allowNull: false
-    }
+    lista:{
+        type: sequelize.STRING,
+        allowNull:false
+    },
+  
+        timestamps: false
+    
+    
 })
 
 
+Todos.sync({
+    force: true
+});
+Todos.hasMany(Tarefas)// Um Lista tem várias listas de tárefas
+Tarefas.belongsTo(Todos)//Uma  tarefa pertence a uma lista 
 module.exports = Todos;
