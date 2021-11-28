@@ -13,6 +13,8 @@ router.route('/').get(todosController.all);
 
 router.route('/new').post(todosController.criarLista)
 
-router.route('/delete/:id',todosController.deletarLista)
+router.route('/delete/:id').delete(todosController.deletarLista)
+
+router.put('/atualizar/:id',todosController.atualizarTituloLista )
 
 module.exports = router;
