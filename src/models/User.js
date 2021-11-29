@@ -26,7 +26,7 @@ const User = connection.define('user',{
 
 User.hasMany(todos)// Um User tem várias listas de tárefas
 todos.belongsTo(User)//Uma  lista todo pertence a um User
-User.hasMany(Tarefas)  //Um User tem várias  tarefas
+
 
 
 

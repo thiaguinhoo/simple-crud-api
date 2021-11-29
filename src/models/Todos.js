@@ -17,6 +17,6 @@ const Todos = connection.define('todos',{
 
 
 
-Todos.hasMany(Tarefas)// Um Lista tem várias listas de tárefas
+Todos.hasMany(Tarefas)// Uma Lista tem várias listas de tárefas
 Tarefas.belongsTo(Todos)//Uma  tarefa pertence a uma lista 
 module.exports = Todos;

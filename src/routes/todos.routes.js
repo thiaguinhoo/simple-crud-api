@@ -11,10 +11,12 @@ router.get("/ping",(req,res) =>{
 
 router.route('/').get(todosController.all);
 
-router.route('/new').post(todosController.criarLista)
+router.get('/:id',todosController.ListandoUmaLista)
 
-router.route('/delete/:id').delete(todosController.deletarLista)
+router.route('/').post(todosController.criarLista)
 
-router.put('/atualizar/:id',todosController.atualizarTituloLista )
+router.delete('/:id',todosController.deletarLista)
+
+router.put('/:id',todosController.atualizarTituloLista )
 
 module.exports = router;
