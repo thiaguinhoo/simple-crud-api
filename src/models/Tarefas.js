@@ -1,24 +1,12 @@
-/* eslint-disable prettier/prettier */
-const sequelize = require('sequelize')
-const connection = require('../database/database')
+const sequelize = require('sequelize');
+const connection = require('../database/database');
 
-
-
-
-const Tarefas = connection.define('tarefas',{
-    tarefa:{
-        type: sequelize.STRING,
-        completa: false,
-        allowNull:false
-    },
-   
-
-    
-       
-    
-    
-})
-
-
+const Tarefas = connection.define('tarefas', {
+  tarefa: {
+    type: sequelize.STRING,
+    completa: false,
+    allowNull: false,
+  },
+});
 
 module.exports = Tarefas;

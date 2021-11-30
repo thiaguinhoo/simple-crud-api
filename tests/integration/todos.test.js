@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const supertest = require('supertest');
 const { StatusCodes } = require('http-status-codes');
 
