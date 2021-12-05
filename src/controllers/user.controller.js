@@ -8,10 +8,13 @@ var bcrypt = require('bcrypt')
 const { StatusCodes } = require('http-status-codes');
 
 module.exports = {
-    ListarUsers: async (_, response) => {
-      const list = await  User.findAll()
-      response.json({list})
-      response.sendStatus(StatusCodes.OK);
+
+    
+    listarUsers: async (_, response) => {
+                let users = await User.findAll()
+                response.json({users})
+                response.sendStatus(StatusCodes.OK);
+      
     },
 
     criarUser: async (request, response) =>{
@@ -34,6 +37,18 @@ module.exports = {
         }else{
           response.json({error: 'Dados não enviados'})
         }
-    }
+    },
+
+    deletarUser: async(request,response)=>{
+        const id = parseInt(request.params.id);
+        if (Number.isNaN(id)) return response.status(400).end();
+       
+        User.destroy({
+         where: {id}
+        }).then(() => {
+         response.status(204).end();
+        }); 
+       },
+
 
 }
