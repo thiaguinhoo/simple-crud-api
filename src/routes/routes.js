@@ -26,8 +26,10 @@ router.put('/todos/:id',todosController.atualizarTituloLista )
 
 //USER ROUTES
 
-router.get('/users').get(userController.ListarUsers);
+router.get('/users',userController.listarUsers)
 router.post('/users',userController.criarUser )
+router.delete('/users/:id',userController.deletarUser)
+
 
 
 
