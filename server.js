@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
-const express = require('express');
-const todosRoutes = require('./src/routes/todos.routes');
+const express = require('express')
+const apiRoutes = require('./src/routes/routes')
 const connection = require('./src/database/database')
 const app = express();
 
@@ -25,7 +25,9 @@ app.use(express.urlencoded({ extended: true }));
      
 
 
-app.use('/todos', todosRoutes);
+app.use('/',apiRoutes);
+
+
 
 
 app.listen(8080,()=>{
