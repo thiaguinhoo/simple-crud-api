@@ -1,20 +1,11 @@
 /* eslint-disable prettier/prettier */
 const express = require('express')
 const apiRoutes = require('./src/routes/routes')
-const connection = require('./src/database/database')
 const app = express();
 
 
-
-
-
-connection 
-        .authenticate()
-        .then(()=>{
-            console.log("Db connectado"); 
-        }).catch((error) => {
-            console.log(error)      
-        })
+const PORT = process.env.PORT || 8080;
+const db = require("./src/models");
 
 
 
@@ -30,7 +21,9 @@ app.use('/',apiRoutes);
 
 
 
-app.listen(8080,()=>{
-    console.log('Application rodando!')
-})
+db.sequelize.sync().then(() => {
+    app.listen(PORT, () => {
+      console.log(`listening at http://localhost:${PORT}`);
+    });
 
+});
