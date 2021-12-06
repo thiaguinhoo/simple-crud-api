@@ -1,20 +1,12 @@
 /* eslint-disable prettier/prettier */
 const { StatusCodes } = require('http-status-codes');
+const db = require("../models");
 
-
-
-
-
-// eslint-disable-next-line no-unused-vars
-const User = require('../models/User')
-const Todos = require('../models/Todos')
-// eslint-disable-next-line no-unused-vars
-const Tarefa = require('../models/Tarefas');
 
 
 module.exports = {
   all: async (_, response) => {
-    const list = await  Todos.findAll()
+    const list = await  db.Todos.findAll()
     response.json({list})
     response.sendStatus(StatusCodes.OK);
   },
@@ -22,17 +14,19 @@ module.exports = {
   ListandoUmaLista: (request,response ) => {
     const id = parseInt(request.params.id)
     if (Number.isNaN(id)) return response.status(400).end();
-    Todos.findByPk(id).then(()=>{
+    db.Todos.findByPk(id).then(()=>{
       response.sendStatus(StatusCodes.OK);
     })
   },
 
 
   criarLista: async (request, response) =>{
-    let titulo = request.body.titulo
-    if(titulo != undefined){
-        Todos.create({
-                    titulo: titulo
+    let categoria = request.body.categoria
+    let user = request.body.user
+    if(categoria != undefined){
+      db.Todos.create({
+                    Categoria: categoria,
+                    UserId: user
                     
             }).then(()=>{
               response.sendStatus(StatusCodes.CREATED);
@@ -51,7 +45,7 @@ module.exports = {
     const id = parseInt(request.params.id);
     if (Number.isNaN(id)) return response.status(400).end();
    
-    Todos.destroy({
+    db.Todos.destroy({
      where: {id}
     }).then(() => {
      response.status(204).end();
@@ -64,7 +58,7 @@ module.exports = {
   atualizarTituloLista: async(request,response)=>{
       let id = request.params.id
       let tituloEdit = request.body.titulo
-      Todos.update({titulo: tituloEdit},{
+      db.Todos.update({titulo: tituloEdit},{
         where:{
                 id:id
         }
