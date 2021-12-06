@@ -1,22 +1,20 @@
-/* eslint-disable prettier/prettier */
-const sequelize = require('sequelize')
-const connection = require('../database/database');
-const Tarefas = require('./Tarefas');
-
-
-
-
-const Todos = connection.define('todos',{
-    titulo: {
-        type: sequelize.STRING,
-        
-    }    
+module.exports = (sequelize, DataTypes) =>{
+    const Todos = sequelize.define("Todos",{
+        Categoria:{
+            type:DataTypes.STRING,
+            allowNull: false    
+        }
+    })
     
+
+   Todos.associate = models =>{
+        Todos.hasMany(models.Tarefas,{
+           foreignKey: false
+        })
+        Todos.belongsTo(models.User,{
+            foreignKey: false
+         })
+    }
     
-})
-
-
-
-Todos.hasMany(Tarefas)// Uma Lista tem várias listas de tárefas
-Tarefas.belongsTo(Todos)//Uma  tarefa pertence a uma lista 
-module.exports = Todos;
+    return Todos
+}
