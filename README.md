@@ -25,11 +25,11 @@
 [] Remover tarefa pelo id<br> 
 [] Atribuir tarefa à uma categoria de listas de tarefas<br>  
 
-[] Cadastro de Usuário<br>
-[] Listagem de todos Usuário<br>
+[✔] Cadastro de Usuário<br>
+[✔] Listagem de todos Usuário<br>
 [] Listagem de Usuário  pelo id<br>
 [] Alteração de Usuário pelo id<br>
-[] Remoção de Usuário pelo id <br>
+[✔] Remoção de Usuário pelo id <br>
 [] Atribuir as listas aos Users <br>  
  
 
