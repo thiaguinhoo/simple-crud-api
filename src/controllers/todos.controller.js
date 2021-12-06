@@ -58,9 +58,11 @@ module.exports = {
   atualizarTituloLista: async(request,response)=>{
       let id = request.params.id
       let tituloEdit = request.body.titulo
+      let user = request.body.user
       db.Todos.update({titulo: tituloEdit},{
         where:{
-                id:id
+                id:id,
+                UserId: user
         }
 }).then(()=>{
         response.sendStatus(StatusCodes.OK);

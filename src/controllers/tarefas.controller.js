@@ -44,8 +44,8 @@ module.exports = {
                     titulo: titulo,   
                     descricao: descricao,
                     done: done,
-                    todoId: todo,
-                    userId: user
+                    TodoId: todo,
+                    UserId: user
                     
             }).then(()=>{
               response.sendStatus(StatusCodes.CREATED);
@@ -82,8 +82,8 @@ module.exports = {
         descricao: descricaoEdit,
         titulo: titulo,
         done: done,
-        todoId: todo ,
-        userId: user
+        TodoId: todo ,
+        UserId: user
     },{
         where:{
                 id:id
